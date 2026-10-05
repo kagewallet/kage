@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KAGE Docs — Walk the shadow path</title>
+  <meta name="description" content="Documentation for KAGE, a self-custody wallet for Robinhood Chain: install, create a wallet, receive, send, RPC endpoints, bridge, and security model." />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="KAGE" />
+  <meta property="og:title" content="KAGE Docs" />
+  <meta property="og:description" content="Install, create a wallet, receive, send, RPC endpoints, bridge, and security model." />
+  <meta property="og:url" content="https://kagewallet.app/docs.html" />
+  <meta property="og:image" content="https://kagewallet.app/images/og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@kagewallet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .docs {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 170px 24px 110px;
+    }
+    .docs__kicker {
+      font-family: var(--mono);
+      font-size: 12px; letter-spacing: 0.3em;
+      color: var(--crimson);
+      margin-bottom: 20px;
+    }
+    .docs__title {
+      font-family: var(--serif);
+      font-weight: 800;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.05;
+      margin-bottom: 18px;
+    }
+    .docs__intro {
+      font-size: 17px;
+      color: rgba(22,18,16,0.7);
+      max-width: 620px;
+      margin-bottom: 70px;
+    }
+    .doc-section { margin-bottom: 64px; }
+    .doc-section h2 {
+      display: flex; align-items: baseline; gap: 14px;
+      font-family: var(--serif);
+      font-weight: 800;
+      font-size: clamp(26px, 3.4vw, 34px);
+      margin-bottom: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+    .doc-section h2 .kanji { color: var(--crimson); }
+    .doc-section h3 {
+      font-family: var(--serif);
+      font-size: 20px;
+      margin: 26px 0 10px;
+    }
+    .doc-section p, .doc-section li {
+      font-size: 16px;
+      color: rgba(22,18,16,0.78);
+      max-width: 700px;
+    }
+    .doc-section ol, .doc-section ul { padding-left: 22px; margin: 12px 0; }
+    .doc-section li { margin: 6px 0; }
+    .doc-section code {
+      font-family: var(--mono);
+      font-size: 13.5px;
+      background: var(--paper-2);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 2px 7px;
+    }
+    .doc-callout {
+      display: flex; gap: 14px;
+      border: 1px dashed rgba(195,39,43,0.5);
+      border-radius: 14px;
+      background: rgba(195,39,43,0.05);
+      padding: 16px 18px;
+      margin: 18px 0;
+      max-width: 700px;
+    }
+    .doc-callout .mark {
+      font-family: var(--serif);
+      font-weight: 800;
+      color: var(--crimson);
+      font-size: 20px;
+      line-height: 1.2;
+    }
+    .doc-callout p { margin: 0; font-size: 15px; }
+    .doc-table {
+      width: 100%;
+      max-width: 700px;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14.5px;
+    }
+    .doc-table th {
+      text-align: left;
+      font-family: var(--mono);
+      font-size: 11px; letter-spacing: 0.18em;
+      color: rgba(22,18,16,0.5);
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    .doc-table td {
+      padding: 12px;
+      border-bottom: 1px dashed var(--line);
+      vertical-align: top;
+    }
+    .doc-table td:first-child { font-weight: 700; white-space: nowrap; }
+    .doc-table code { white-space: nowrap; }
+    .docs__backrow { margin-top: 70px; }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a class="nav__brand" href="index.html">
+      <span class="nav__mon">影</span>
+      <span class="nav__name">KAGE</span>
+    </a>
+    <nav class="nav__links">
+      <a href="index.html#features">Wallet</a>
+      <a href="index.html#bridge">Bridge</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="docs.html" style="color:var(--paper)">Docs</a>
+    </nav>
+    <div class="nav__social">
+      <a href="https://x.com/kagewallet" target="_blank" rel="noopener" aria-label="X — @kagewallet">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644z"/></svg>
+      </a>
+      <a href="https://t.me/kagewallet" target="_blank" rel="noopener" aria-label="Telegram — @kagewallet">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 3.19a1.5 1.5 0 0 0-2.04-1.64L2.1 9.4c-1.26.52-1.14 2.35.17 2.72l4.52 1.26 1.69 5.4c.37 1.17 1.86 1.46 2.64.52l2.28-2.76 4.47 3.3c.98.72 2.37.17 2.6-1.03l3.47-15.62zM8.3 12.9l9.14-5.9c.36-.23.74.26.44.56l-7.2 7.06-.27 3.18-1.9-4.9z" transform="scale(.92) translate(1 1)"/></svg>
+      </a>
+    </div>
+    <a class="btn btn--primary nav__cta" href="app/">Launch App<span class="btn__ink" aria-hidden="true"></span></a>
+  </header>
+
+  <main class="docs">
+    <p class="docs__kicker">— DOCUMENTATION 書 —</p>
+    <h1 class="docs__title">The shadow<br/>path, <span class="crimson">written.</span></h1>
+    <p class="docs__intro">Everything you need to run KAGE: install it, create or restore a wallet, receive and send on Robinhood Chain, pick your RPC, and understand exactly who holds what.</p>
+
+    <section class="doc-section" id="install">
+      <h2><span class="kanji">一</span> Install</h2>
+      <p>KAGE v0.1.0 is a web app — nothing to install. Open <a href="app/"><code>kagewallet.app/app</code></a> in your browser and you are in. Keys are generated and stored in that browser only. A downloadable macOS build comes next.</p>
+      <div class="doc-callout"><span class="mark">注</span><p>Early software. Start with a small amount while v0.1.x matures, and only download KAGE from this site or the official GitHub releases.</p></div>
+    </section>
+
+    <section class="doc-section" id="wallet">
+      <h2><span class="kanji">二</span> Create or restore a wallet</h2>
+      <h3>Create</h3>
+      <ol>
+        <li>Open KAGE and choose <code>Create wallet</code>.</li>
+        <li>Write down the <strong>24-word seed</strong> on paper, in order. This seed is the wallet — anyone who has it has your coins.</li>
+        <li>Set a password. It locks the wallet file on this device only.</li>
+      </ol>
+      <h3>Restore</h3>
+      <ol>
+        <li>Choose <code>Restore wallet</code> and type your 24 words.</li>
+        <li>Set a new password for the new device.</li>
+      </ol>
+      <div class="doc-callout"><span class="mark">刀</span><p>KAGE has no account and no server login. Lose the seed and the password together, and no one — including us — can bring the wallet back.</p></div>
+    </section>
+
+    <section class="doc-section" id="receive">
+      <h2><span class="kanji">三</span> Receive</h2>
+      <p>Open the <code>Receive</code> tab. Your address works for both ETH and USDG on Robinhood Chain. Share it as text or as a QR code; balances update live as transfers confirm.</p>
+    </section>
+
+    <section class="doc-section" id="send">
+      <h2><span class="kanji">四</span> Send</h2>
+      <ol>
+        <li>Paste the recipient address — KAGE checks the format before anything else.</li>
+        <li>Enter the amount (ETH or USDG).</li>
+        <li>Review the confirmation sheet: amount, gas, and total. Gas on Robinhood Chain runs near <code>0.01 gwei</code>, so the fee is close to nothing.</li>
+        <li>Send. The transaction hash stays in your activity list, linked to the explorer.</li>
+      </ol>
+    </section>
+
+    <section class="doc-section" id="network">
+      <h2><span class="kanji">五</span> Network &amp; RPC</h2>
+      <p>KAGE talks to the RPC endpoint you choose, and you can change it at any time in <code>Settings → Network</code>.</p>
+      <table class="doc-table">
+        <tr><th>NETWORK</th><th>RPC ENDPOINT</th></tr>
+        <tr><td>Mainnet</td><td><code>robinhood-rpc.publicnode.com</code></td></tr>
+        <tr><td>Testnet</td><td><code>robinhood-sepolia-rpc.publicnode.com</code> · chain id <code>46630</code></td></tr>
+      </table>
+      <p>Run your own node and point KAGE at it for the most independence, or use any public endpoint you trust.</p>
+    </section>
+
+    <section class="doc-section" id="bridge">
+      <h2><span class="kanji">六</span> Bridge</h2>
+      <p>From the receive page you can bridge ETH in from Ethereum mainnet and arrive on Robinhood Chain in minutes. You get a live quote first, every step is tracked, and a refund address protects the transfer. Bridging back out ships next.</p>
+    </section>
+
+    <section class="doc-section" id="security">
+      <h2><span class="kanji">七</span> Security model</h2>
+      <ul>
+        <li><strong>Keys:</strong> generated and stored on your device, encrypted with your password. They never leave it.</li>
+        <li><strong>Cryptography:</strong> audited, standard Ethereum libraries — nothing home-rolled.</li>
+        <li><strong>Servers:</strong> none. No account, no login, no custody. The only network traffic is to the RPC you chose.</li>
+        <li><strong>Code:</strong> public on GitHub. Read it, build it, verify it.</li>
+      </ul>
+      <div class="doc-callout"><span class="mark">影</span><p>KAGE is independent software that speaks to Robinhood Chain. It is not affiliated with, or endorsed by, Robinhood Markets.</p></div>
+    </section>
+
+    <div class="docs__backrow">
+      <a class="btn btn--primary" href="index.html">← Back to the shadow path<span class="btn__ink" aria-hidden="true"></span></a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__cols">
+      <div><h4>KAGE</h4><a href="app/">App</a><a href="index.html#features">Wallet</a><a href="index.html#bridge">Bridge</a><a href="index.html#faq">FAQ</a><a href="docs.html">Docs</a></div>
+      <div><h4>LEGAL</h4><a href="#">Privacy</a><a href="#">Disclosures</a><a href="#">Terms</a></div>
+      <div><h4>FOLLOW</h4><a href="https://x.com/kagewallet" target="_blank" rel="noopener">X — @kagewallet</a><a href="https://t.me/kagewallet" target="_blank" rel="noopener">Telegram — @kagewallet</a><a href="#">GitHub</a><a href="mailto:dev@kagewallet.app">dev@kagewallet.app</a></div>
+      <div><h4>STATUS</h4><p class="footer__status"><span class="ui__pulse"></span>Building in public</p></div>
+    </div>
+    <p class="footer__fine">© 2026 Kage Labs. Not affiliated with Robinhood Markets.</p>
+  </footer>
+</body>
+</html>

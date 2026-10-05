@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>banner</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1125px; height: 375px; overflow: hidden; }
+  .stage {
+    position: relative;
+    width: 1125px; height: 375px;
+    background: #f4efe4;
+    overflow: hidden;
+    font-family: 'Shippori Mincho', serif;
+  }
+  .giant {
+    position: absolute;
+    right: -40px; top: 50%;
+    translate: 0 -50%;
+    font-size: 430px;
+    font-weight: 800;
+    line-height: 1;
+    color: rgba(22, 18, 16, 0.055);
+    user-select: none;
+  }
+  .enso {
+    position: absolute;
+    top: 50%; right: 118px;
+    width: 330px;
+    translate: 0 -52%;
+    color: #c3272b;
+  }
+  .enso svg { width: 100%; height: auto; display: block; }
+  .samurai {
+    position: absolute;
+    top: 47%; right: 160px;
+    width: 250px;
+    translate: 0 -50%;
+    mix-blend-mode: multiply;
+    filter: brightness(1.08) contrast(1.06);
+  }
+  .copy {
+    position: absolute;
+    left: 72px; top: 50%;
+    translate: 0 -50%;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 18px;
+  }
+  .mon {
+    display: grid; place-items: center;
+    width: 54px; height: 54px;
+    background: #c3272b;
+    color: #f4efe4;
+    border-radius: 12px;
+    font-size: 30px;
+    font-weight: 800;
+  }
+  .name {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 0.24em;
+    color: #161210;
+  }
+  .title {
+    font-size: 74px;
+    font-weight: 800;
+    line-height: 1.02;
+    color: #161210;
+  }
+  .title em { font-style: normal; color: #c3272b; }
+  .meta {
+    margin-top: 22px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 15px;
+    letter-spacing: 0.22em;
+    color: rgba(22, 18, 16, 0.6);
+  }
+  .links {
+    margin-top: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 15px;
+    letter-spacing: 0.14em;
+    color: #c3272b;
+    font-weight: 500;
+  }
+  .strip {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 10px;
+    background: #c3272b;
+  }
+  .grain {
+    position: absolute; inset: 0;
+    opacity: 0.55;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="giant">影</div>
+    <div class="enso">
+      <svg viewBox="0 0 600 600" fill="none">
+        <path d="M383 78C275 42 125 96 86 237c-39 141 51 262 183 278 132 16 243-77 252-197 7-96-48-171-121-205" stroke="currentColor" stroke-width="30" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <img class="samurai" src="/images/hero-samurai.jpg" alt="" />
+    <div class="copy">
+      <div class="brand"><span class="mon">影</span><span class="name">KAGE</span></div>
+      <div class="title">Own your<br/>road<em>.</em></div>
+      <div class="meta">SELF-CUSTODY WALLET · ROBINHOOD CHAIN</div>
+      <div class="links">kagewallet.app &nbsp;·&nbsp; @kagewallet</div>
+    </div>
+    <div class="strip"></div>
+    <div class="grain"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KAGE — Walk the shadow path</title>
+  <meta name="description" content="KAGE is a self-custody wallet for Robinhood Chain. Your keys, your coins, your road." />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="KAGE" />
+  <meta property="og:title" content="KAGE — Own your road." />
+  <meta property="og:description" content="A self-custody wallet for Robinhood Chain. Your keys, your coins, your road." />
+  <meta property="og:url" content="https://kagewallet.app/" />
+  <meta property="og:image" content="https://kagewallet.app/images/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@kagewallet" />
+  <meta name="twitter:title" content="KAGE — Own your road." />
+  <meta name="twitter:description" content="A self-custody wallet for Robinhood Chain. Your keys, your coins, your road." />
+  <meta name="twitter:image" content="https://kagewallet.app/images/og.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- scroll progress -->
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <!-- ================= NAV ================= -->
+  <header class="nav" id="nav">
+    <a class="nav__brand" href="#top">
+      <span class="nav__mon">影</span>
+      <span class="nav__name">KAGE</span>
+    </a>
+    <nav class="nav__links">
+      <a href="#features" data-nav>Wallet</a>
+      <a href="#bridge" data-nav>Bridge</a>
+      <a href="#faq" data-nav>FAQ</a>
+      <a href="docs.html" data-nav>Docs</a>
+    </nav>
+    <div class="nav__social">
+      <a href="https://x.com/kagewallet" target="_blank" rel="noopener" aria-label="X — @kagewallet">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644z"/></svg>
+      </a>
+      <a href="https://t.me/kagewallet" target="_blank" rel="noopener" aria-label="Telegram — @kagewallet">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 3.19a1.5 1.5 0 0 0-2.04-1.64L2.1 9.4c-1.26.52-1.14 2.35.17 2.72l4.52 1.26 1.69 5.4c.37 1.17 1.86 1.46 2.64.52l2.28-2.76 4.47 3.3c.98.72 2.37.17 2.6-1.03l3.47-15.62zM8.3 12.9l9.14-5.9c.36-.23.74.26.44.56l-7.2 7.06-.27 3.18-1.9-4.9z" transform="scale(.92) translate(1 1)"/></svg>
+      </a>
+    </div>
+    <a class="btn btn--primary nav__cta" href="app/">Launch App<span class="btn__ink" aria-hidden="true"></span></a>
+  </header>
+
+  <main id="top">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="hero">
+      <div class="hero__enso" aria-hidden="true">
+        <svg viewBox="0 0 600 600" fill="none">
+          <path id="ensoPath" d="M383 78C275 42 125 96 86 237c-39 141 51 262 183 278 132 16 243-77 252-197 7-96-48-171-121-205" stroke="currentColor" stroke-width="30" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="hero__kanji" aria-hidden="true">影</div>
+      <img class="hero__img" src="images/hero-samurai.jpg" alt="" aria-hidden="true" />
+
+      <h1 class="hero__title" id="heroTitle">
+        <span class="hero__line"><span data-split>Own</span></span>
+        <span class="hero__line"><span data-split>your&nbsp;road<em class="hero__dot">.</em></span></span>
+      </h1>
+
+      <p class="hero__sub" id="heroSub">Brokers hold coins in their vault. Yours walk beside you.<br/>KAGE is a self-custody wallet for Robinhood Chain.</p>
+
+      <div class="hero__meta" id="heroMeta">
+        <span class="hero__meta-item">自主管理 — SELF-CUSTODY</span>
+        <span class="hero__meta-sep">●</span>
+        <span class="hero__meta-item">ROBINHOOD CHAIN · MAINNET</span>
+        <span class="hero__meta-sep">●</span>
+        <span class="hero__meta-item">v0.1.0 — WEB APP</span>
+      </div>
+
+      <div class="hero__ca" id="heroCa">
+        <span class="ca__dot" aria-hidden="true"></span>
+        <span class="ca__label">CA</span>
+        <span class="ca__value">COMING SOON</span>
+      </div>
+
+      <div class="hero__scrollcue" id="scrollCue">
+        <span>KEEP SCROLLING</span>
+        <span class="hero__arrow">↓</span>
+      </div>
+    </section>
+
+    <!-- ================= MARQUEE ================= -->
+    <div class="marquee marquee--crimson" aria-hidden="true">
+      <div class="marquee__track" data-marquee>
+        <span>影 SHADOW</span><i>●</i><span>鍵 YOUR KEYS</span><i>●</i><span>自由 FREEDOM</span><i>●</i><span>刀 PRECISION</span><i>●</i>
+        <span>影 SHADOW</span><i>●</i><span>鍵 YOUR KEYS</span><i>●</i><span>自由 FREEDOM</span><i>●</i><span>刀 PRECISION</span><i>●</i>
+        <span>影 SHADOW</span><i>●</i><span>鍵 YOUR KEYS</span><i>●</i><span>自由 FREEDOM</span><i>●</i><span>刀 PRECISION</span><i>●</i>
+      </div>
+    </div>
+
+    <!-- ================= MANIFESTO (dark, word scrub) ================= -->
+    <section class="manifesto section--ink" id="manifesto">
+      <p class="manifesto__label">— SELF-CUSTODY 自主管理 —</p>
+      <p class="manifesto__text" id="manifestoText">
+        On an exchange, your coins sleep in someone else's vault. KAGE does not sleep there.
+        Your keys live on your device — no custodian, no freeze, no permission asked.
+      </p>
+    </section>
+
+    <!-- ================= STATEMENT (pinned) ================= -->
+    <section class="statement" id="statement">
+      <p class="statement__label">● ● ●&nbsp;&nbsp;ROBINHOOD CHAIN&nbsp;&nbsp;● ● ●</p>
+      <h2 class="statement__title" id="statementTitle">
+        They hold the vault.<br/><span class="crimson">You hold the key.</span>
+      </h2>
+      <div class="statement__stroke" aria-hidden="true">
+        <svg viewBox="0 0 900 120" preserveAspectRatio="none" fill="none">
+          <path id="strokePath" d="M10 70 C 180 20, 320 110, 470 60 S 760 30, 890 65" stroke="currentColor" stroke-width="10" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ================= FEATURES ================= -->
+    <section class="features" id="features">
+
+      <!-- 01 -->
+      <article class="feature" data-feature>
+        <div class="feature__mock" data-mock>
+          <div class="ui ui--unlock">
+            <div class="ui__bar"><i></i><i></i><i></i></div>
+            <p class="ui__hello">おかえり — Welcome back</p>
+            <p class="ui__hint">Enter your password to open the wallet.</p>
+            <label class="ui__label">PASSWORD</label>
+            <div class="ui__input">••••••••••••</div>
+            <button class="ui__btn" type="button">Unlock</button>
+            <p class="ui__foot">24 words, on this device only</p>
+          </div>
+          <div class="feature__seal" aria-hidden="true">鍵</div>
+        </div>
+        <div class="feature__copy">
+          <span class="feature__no">一 <em>01</em></span>
+          <h3 class="feature__title">A wallet only you hold</h3>
+          <p class="feature__text">Your wallet grows from a 24-word seed that never leaves your device. A password locks it; the same 24 words restore it anywhere. No account. No server. No master.</p>
+          <ul class="chips">
+            <li>Keys on your device</li><li>Password lock</li><li>24-word restore</li><li>No account</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 02 -->
+      <article class="feature feature--flip" data-feature>
+        <div class="feature__mock" data-mock>
+          <div class="ui ui--addr">
+            <div class="ui__bar"><i></i><i></i><i></i></div>
+            <p class="ui__label">YOUR ADDRESS</p>
+            <div class="ui__qr" aria-hidden="true">
+              <svg viewBox="0 0 29 29" shape-rendering="crispEdges" id="qrSvg"></svg>
+            </div>
+            <p class="ui__addr">0x8aKL…k2Tz</p>
+            <div class="ui__line"><span>ETH</span><b>1.2864</b></div>
+            <div class="ui__line"><span>USDG</span><b>2,480.00</b></div>
+            <div class="ui__row">
+              <button class="ui__btn ui__btn--ghost" type="button">Copy</button>
+              <button class="ui__btn" type="button">Receive</button>
+            </div>
+          </div>
+          <div class="feature__seal" aria-hidden="true">面</div>
+        </div>
+        <div class="feature__copy">
+          <span class="feature__no">二 <em>02</em></span>
+          <h3 class="feature__title">One blade, every token</h3>
+          <p class="feature__text">ETH and USDG on Robinhood Chain, side by side under one address. Share it as text or as a QR code, and watch every balance move in real time.</p>
+          <ul class="chips">
+            <li>ETH &amp; USDG</li><li>QR code</li><li>One-click copy</li><li>Live balances</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 03 -->
+      <article class="feature" data-feature>
+        <div class="feature__mock" data-mock>
+          <div class="ui ui--send">
+            <div class="ui__bar"><i></i><i></i><i></i></div>
+            <p class="ui__hello">Check the strike</p>
+            <div class="ui__line"><span>Amount</span><b>0.2500 ETH</b></div>
+            <div class="ui__line"><span>Gas · 0.01 gwei</span><b>0.0000002 ETH</b></div>
+            <div class="ui__line ui__line--total"><span>Total</span><b>0.2500002 ETH</b></div>
+            <div class="ui__row">
+              <button class="ui__btn" type="button">Send now</button>
+              <button class="ui__btn ui__btn--ghost" type="button">Cancel</button>
+            </div>
+          </div>
+          <div class="feature__seal" aria-hidden="true">刀</div>
+        </div>
+        <div class="feature__copy">
+          <span class="feature__no">三 <em>03</em></span>
+          <h3 class="feature__title">One cut, measured twice</h3>
+          <p class="feature__text">KAGE checks the address and the amount, then shows the gas and the total before anything leaves your wallet. On Robinhood Chain, gas runs near 0.01 gwei — the cut costs almost nothing.</p>
+          <ul class="chips">
+            <li>Address check</li><li>Gas first</li><li>Near-zero fees</li><li>Tx hash kept</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 04 -->
+      <article class="feature feature--flip" data-feature>
+        <div class="feature__mock" data-mock>
+          <div class="ui ui--activity">
+            <div class="ui__bar"><i></i><i></i><i></i></div>
+            <p class="ui__label">RECENT ACTIVITY</p>
+            <div class="ui__tx"><span class="ui__dir ui__dir--in">↓</span><div><b>Received</b><small>Today · 12 blocks</small></div><b class="in">+1.1500 ETH</b></div>
+            <div class="ui__tx"><span class="ui__dir">↑</span><div><b>Sent</b><small>Today · gas 0.0000002</small></div><b>−0.2500 ETH</b></div>
+            <div class="ui__tx"><span class="ui__dir ui__dir--in">↓</span><div><b>Received</b><small>3 Oct · USDG</small></div><b class="in">+120.00 USDG</b></div>
+          </div>
+          <div class="feature__seal" aria-hidden="true">記</div>
+        </div>
+        <div class="feature__copy">
+          <span class="feature__no">四 <em>04</em></span>
+          <h3 class="feature__title">Every step, in order</h3>
+          <p class="feature__text">Your activity lists every transfer, newest first, with its confirmations, its gas, and a link to the explorer. A clean scroll of the road behind you.</p>
+          <ul class="chips">
+            <li>Confirmations</li><li>Gas paid</li><li>Explorer links</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 05 -->
+      <article class="feature" data-feature>
+        <div class="feature__mock" data-mock>
+          <div class="ui ui--node">
+            <div class="ui__bar"><i></i><i></i><i></i></div>
+            <p class="ui__label">RPC ENDPOINT</p>
+            <div class="ui__node"><span class="ui__pulse"></span>robinhood-rpc.publicnode.com</div>
+            <div class="ui__line"><span>Status</span><b class="in">Connected</b></div>
+            <div class="ui__line"><span>Block height</span><b id="nodeHeight" data-count="3777437">0</b></div>
+          </div>
+          <div class="feature__seal" aria-hidden="true">城</div>
+        </div>
+        <div class="feature__copy">
+          <span class="feature__no">五 <em>05</em></span>
+          <h3 class="feature__title">Your own stronghold</h3>
+          <p class="feature__text">KAGE speaks to the RPC you choose. Use a public endpoint, point it at your own node, or switch to the testnet — and change it at any time.</p>
+          <ul class="chips">
+            <li>Custom RPC</li><li>Mainnet &amp; testnet</li><li>Live sync</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <!-- ================= BRIDGE (dark) ================= -->
+    <section class="bridge section--ink" id="bridge">
+      <div class="bridge__copy">
+        <p class="manifesto__label">— BRIDGE 橋 —</p>
+        <h2 class="bridge__title" data-reveal>Cross the river<br/><span class="crimson">unseen.</span></h2>
+        <p class="bridge__text" data-reveal>Bridge ETH in from Ethereum mainnet and arrive on Robinhood Chain in minutes, right from the receive page. Bridging back out comes next.</p>
+        <ul class="chips chips--dark" data-reveal>
+          <li>Ethereum → Robinhood</li><li>ETH &amp; USDG</li><li>Live quotes</li><li>Track every step</li><li>Refund address</li>
+        </ul>
+      </div>
+      <div class="bridge__mock" data-mock>
+        <div class="ui ui--bridge">
+          <div class="ui__tabs"><span class="is-active">Bridge in</span><span>Bridge out</span></div>
+          <label class="ui__label">YOU SEND <i class="ui__tag">ETHEREUM</i></label>
+          <div class="ui__swap"><b>0.05</b><span>ETH</span></div>
+          <div class="ui__down">↓</div>
+          <label class="ui__label">YOU GET <i class="ui__tag">ROBINHOOD CHAIN</i></label>
+          <div class="ui__swap"><b>≈ 0.0498</b><span>ETH</span></div>
+          <div class="ui__live"><span class="ui__pulse"></span>Live quote</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <section class="faq" id="faq">
+      <div class="faq__head">
+        <span class="faq__giant" data-split-giant>問</span>
+        <div class="faq__headcopy">
+          <p class="manifesto__label manifesto__label--dark">QUESTIONS — 問答</p>
+          <h2 class="faq__title">Straight answers.<br/>No fine print.</h2>
+        </div>
+      </div>
+
+      <div class="faq__list" id="faqList">
+        <details class="qa" open>
+          <summary><span class="qa__no">01</span><span class="qa__q">Can I use KAGE today?</span><span class="qa__mark">+</span></summary>
+          <div class="qa__a"><p>Yes — right in your browser. The v0.1.0 web app runs on the Robinhood Chain mainnet with real ETH, straight from kagewallet.app/app. It is early software — start with a small amount. A macOS build comes next.</p></div>
+        </details>
+        <details class="qa">
+          <summary><span class="qa__no">02</span><span class="qa__q">Who holds my keys?</span><span class="qa__mark">+</span></summary>
+          <div class="qa__a"><p>You do. Your seed and keys stay on your device, locked with your password. KAGE has no account and no server login, so no one can see your keys, move your coins, or restore your wallet.</p></div>
+        </details>
+        <details class="qa">
+          <summary><span class="qa__no">03</span><span class="qa__q">Does KAGE write its own cryptography?</span><span class="qa__mark">+</span></summary>
+          <div class="qa__a"><p>No. KAGE uses audited, standard Ethereum libraries for keys, addresses, and transactions — nothing home-rolled.</p></div>
+        </details>
+        <details class="qa">
+          <summary><span class="qa__no">04</span><span class="qa__q">Is the code public?</span><span class="qa__mark">+</span></summary>
+          <div class="qa__a"><p>Yes. The code is on GitHub, so anyone can read it and build it.</p></div>
+        </details>
+        <details class="qa">
+          <summary><span class="qa__no">05</span><span class="qa__q">Is KAGE affiliated with Robinhood?</span><span class="qa__mark">+</span></summary>
+          <div class="qa__a"><p>No. KAGE is independent software that speaks to Robinhood Chain. Robinhood does not endorse it.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ================= DOWNLOAD CTA ================= -->
+    <section class="cta section--ink" id="download">
+      <div class="cta__kanji" aria-hidden="true">道</div>
+      <h2 class="cta__title" data-reveal>Step onto<br/>the <span class="crimson">shadow path</span>.</h2>
+      <a class="btn btn--primary btn--big" href="app/" data-reveal>Launch the web app<span class="btn__ink" aria-hidden="true"></span></a>
+      <p class="cta__note" data-reveal>v0.1.0 web · runs in your browser · macOS build coming soon</p>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="footer__cols">
+      <div><h4>KAGE</h4><a href="app/">App</a><a href="#features">Wallet</a><a href="#bridge">Bridge</a><a href="#faq">FAQ</a><a href="docs.html">Docs</a><a href="#download">Download</a></div>
+      <div><h4>LEGAL</h4><a href="#">Privacy</a><a href="#">Disclosures</a><a href="#">Terms</a></div>
+      <div><h4>FOLLOW</h4><a href="https://x.com/kagewallet" target="_blank" rel="noopener">X — @kagewallet</a><a href="https://t.me/kagewallet" target="_blank" rel="noopener">Telegram — @kagewallet</a><a href="#">GitHub</a><a href="mailto:dev@kagewallet.app">dev@kagewallet.app</a></div>
+      <div><h4>STATUS</h4><p class="footer__status"><span class="ui__pulse"></span>Building in public</p></div>
+    </div>
+    <div class="footer__giant" aria-hidden="true"><span id="footerGiant">影 KAGE 影</span></div>
+    <p class="footer__fine">© 2026 Kage Labs. Not affiliated with Robinhood Markets.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KAGE App — your wallet</title>
+  <meta name="description" content="KAGE web wallet for Robinhood Chain. Keys generated and stored in your browser only." />
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="topbar__brand" href="../index.html">
+      <span class="topbar__mon">影</span><span>KAGE</span>
+    </a>
+    <div class="topbar__right">
+      <span class="net" id="netBadge" title="Network"><span class="net__dot" id="netDot"></span><span id="netName">—</span></span>
+      <button class="iconbtn" id="btnSettings" title="Settings" type="button">⚙</button>
+      <button class="iconbtn" id="btnLock" title="Lock wallet" type="button" hidden>⏻</button>
+    </div>
+  </header>
+
+  <main class="shell">
+
+    <!-- ========== ONBOARD ========== -->
+    <section class="card" data-screen="onboard" hidden>
+      <p class="card__kicker">自主管理 — SELF-CUSTODY</p>
+      <h1 class="card__title">Your wallet,<br/>on <span class="crimson">this device</span>.</h1>
+      <p class="card__sub">Keys are generated in your browser and never leave it. Early software — start with a small amount.</p>
+      <div class="stack">
+        <button class="btn" id="goCreate" type="button">Create a new wallet</button>
+        <button class="btn btn--ghost" id="goRestore" type="button">Restore from 24 words</button>
+      </div>
+    </section>
+
+    <!-- ========== CREATE: SEED ========== -->
+    <section class="card" data-screen="seed" hidden>
+      <p class="card__kicker">一 — WRITE THESE DOWN</p>
+      <h2 class="card__h2">Your 24 words</h2>
+      <p class="card__sub">This seed <b>is</b> the wallet. Write it on paper, in order. Anyone who has it, has your coins. It is shown only once.</p>
+      <ol class="seedgrid" id="seedGrid"></ol>
+      <div class="row">
+        <button class="btn btn--ghost" id="seedCopy" type="button">Copy</button>
+        <button class="btn" id="seedNext" type="button">I wrote them down →</button>
+      </div>
+    </section>
+
+    <!-- ========== CREATE: VERIFY ========== -->
+    <section class="card" data-screen="verify" hidden>
+      <p class="card__kicker">二 — PROVE IT</p>
+      <h2 class="card__h2">Word #<span id="quizNo">?</span></h2>
+      <p class="card__sub">Type that word from your paper to continue.</p>
+      <input class="input" id="quizWord" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="word" />
+      <p class="formerr" id="quizErr" hidden>Not that word. Check your paper.</p>
+      <div class="row">
+        <button class="btn btn--ghost" id="quizBack" type="button">← Show words again</button>
+        <button class="btn" id="quizNext" type="button">Continue</button>
+      </div>
+    </section>
+
+    <!-- ========== RESTORE ========== -->
+    <section class="card" data-screen="restore" hidden>
+      <p class="card__kicker">RESTORE — 復元</p>
+      <h2 class="card__h2">Enter your 24 words</h2>
+      <p class="card__sub">Separated by spaces, in order.</p>
+      <textarea class="input input--area" id="restorePhrase" rows="4" autocapitalize="none" spellcheck="false" placeholder="word1 word2 word3 …"></textarea>
+      <p class="formerr" id="restoreErr" hidden>That is not a valid 12 or 24-word seed.</p>
+      <div class="row">
+        <button class="btn btn--ghost" id="restoreBack" type="button">← Back</button>
+        <button class="btn" id="restoreNext" type="button">Restore</button>
+      </div>
+    </section>
+
+    <!-- ========== SET PASSWORD ========== -->
+    <section class="card" data-screen="password" hidden>
+      <p class="card__kicker">三 — LOCK IT</p>
+      <h2 class="card__h2">Set a password</h2>
+      <p class="card__sub">It encrypts the wallet on this device only. Restoring on another device needs the 24 words, not this password.</p>
+      <label class="lab">PASSWORD</label>
+      <input class="input" id="pw1" type="password" autocomplete="new-password" placeholder="at least 8 characters" />
+      <label class="lab">REPEAT</label>
+      <input class="input" id="pw2" type="password" autocomplete="new-password" placeholder="same password" />
+      <p class="formerr" id="pwErr" hidden></p>
+      <button class="btn btn--wide" id="pwSave" type="button">Encrypt &amp; open wallet</button>
+    </section>
+
+    <!-- ========== UNLOCK ========== -->
+    <section class="card" data-screen="unlock" hidden>
+      <p class="card__kicker">おかえり — WELCOME BACK</p>
+      <h2 class="card__h2">Unlock your wallet</h2>
+      <label class="lab">PASSWORD</label>
+      <input class="input" id="unlockPw" type="password" autocomplete="current-password" placeholder="••••••••••••" />
+      <p class="formerr" id="unlockErr" hidden>Wrong password.</p>
+      <button class="btn btn--wide" id="unlockBtn" type="button">Unlock</button>
+      <p class="fine">25 words on paper? That restores everything. <a href="#" id="unlockRestore">Restore instead</a> · <a href="#" id="unlockWipe" class="danger">wipe this device</a></p>
+    </section>
+
+    <!-- ========== WALLET ========== -->
+    <section data-screen="wallet" hidden>
+
+      <div class="card card--balance">
+        <p class="lab">TOTAL · <span id="addrShort">0x…</span> <button class="mini" id="copyAddr" type="button">copy</button></p>
+        <h2 class="bal" id="balEth">0.0000 <span>ETH</span></h2>
+        <div class="tokens" id="tokenRows"></div>
+        <div class="row row--tight">
+          <button class="btn" id="tabReceiveBtn" type="button">Receive</button>
+          <button class="btn btn--ghost" id="tabSendBtn" type="button">Send</button>
+        </div>
+      </div>
+
+      <!-- receive -->
+      <div class="card" id="panelReceive" hidden>
+        <p class="card__kicker">RECEIVE — 受</p>
+        <div class="qrwrap"><div id="qrBox"></div></div>
+        <p class="addr mono" id="addrFull">—</p>
+        <button class="btn btn--wide" id="copyAddr2" type="button">Copy address</button>
+        <p class="fine">Send only Robinhood Chain assets (ETH / ERC-20) to this address.</p>
+      </div>
+
+      <!-- send -->
+      <div class="card" id="panelSend" hidden>
+        <p class="card__kicker">SEND — 送</p>
+        <label class="lab">TO</label>
+        <input class="input mono" id="sendTo" type="text" autocomplete="off" spellcheck="false" placeholder="0x…" />
+        <label class="lab">ASSET</label>
+        <select class="input" id="sendToken"><option value="eth">ETH</option></select>
+        <label class="lab">AMOUNT <button class="mini" id="sendMax" type="button">max</button></label>
+        <input class="input mono" id="sendAmt" type="text" inputmode="decimal" autocomplete="off" placeholder="0.0" />
+        <p class="formerr" id="sendErr" hidden></p>
+        <button class="btn btn--wide" id="sendPreview" type="button">Check the strike →</button>
+      </div>
+
+      <!-- confirm sheet -->
+      <div class="card card--confirm" id="panelConfirm" hidden>
+        <p class="card__kicker">CHECK THE STRIKE — 確認</p>
+        <div class="line"><span>To</span><b class="mono" id="cTo">—</b></div>
+        <div class="line"><span>Amount</span><b class="mono" id="cAmt">—</b></div>
+        <div class="line"><span>Network fee</span><b class="mono" id="cFee">—</b></div>
+        <div class="line line--total"><span>Total</span><b class="mono" id="cTotal">—</b></div>
+        <div class="row">
+          <button class="btn" id="cSend" type="button">Send now</button>
+          <button class="btn btn--ghost" id="cCancel" type="button">Cancel</button>
+        </div>
+      </div>
+
+      <!-- activity -->
+      <div class="card">
+        <p class="card__kicker">ACTIVITY — 記録 <button class="mini" id="refreshBtn" type="button">refresh</button></p>
+        <div id="txList" class="txlist"><p class="fine" id="txEmpty">No activity yet on this device.</p></div>
+      </div>
+    </section>
+
+    <!-- ========== SETTINGS ========== -->
+    <section class="card" data-screen="settings" hidden>
+      <p class="card__kicker">SETTINGS — 設定</p>
+      <h2 class="card__h2">Network</h2>
+      <label class="lab">NETWORK</label>
+      <select class="input" id="setNet">
+        <option value="mainnet">Robinhood Chain — Mainnet</option>
+        <option value="testnet">Robinhood Chain — Testnet</option>
+        <option value="custom">Custom RPC</option>
+      </select>
+      <div id="customRpcWrap" hidden>
+        <label class="lab">RPC URL</label>
+        <input class="input mono" id="setRpc" type="text" placeholder="https://…" />
+      </div>
+      <p class="fine" id="rpcInfo">—</p>
+
+      <h2 class="card__h2">Token</h2>
+      <label class="lab">ERC-20 CONTRACT (e.g. USDG)</label>
+      <input class="input mono" id="setToken" type="text" placeholder="0x… (leave empty for ETH only)" />
+      <p class="formerr" id="setTokenErr" hidden>Not a valid contract on this network.</p>
+
+      <div class="row"><button class="btn" id="setSave" type="button">Save</button><button class="btn btn--ghost" id="setBack" type="button">← Back</button></div>
+
+      <hr class="rule" />
+      <h2 class="card__h2 danger">Danger zone</h2>
+      <div class="stack">
+        <button class="btn btn--ghost" id="revealSeed" type="button">Reveal 24 words (needs password)</button>
+        <button class="btn btn--danger" id="wipeBtn" type="button">Wipe wallet from this device</button>
+      </div>
+      <p class="fine">Wiping only removes the encrypted copy on this device. The 24 words always restore the wallet.</p>
+    </section>
+
+  </main>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <footer class="appfoot">
+    <p>KAGE v0.1.0 web · early software, start small · <a href="../docs.html">docs</a> · <a href="https://t.me/kagewallet" target="_blank" rel="noopener">@kagewallet</a></p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.13.2/ethers.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
