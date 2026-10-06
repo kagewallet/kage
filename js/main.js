@@ -358,4 +358,18 @@ gsap.fromTo("#footerGiant",
 /* ---------- section theme flip for nav (optional subtlety) ---------- */
 /* keep nav readable: it is already dark pill on both themes */
 
+/* CA badge: click to copy */
+const caBtn = document.getElementById("heroCa");
+if (caBtn && caBtn.dataset.ca) {
+  caBtn.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(caBtn.dataset.ca);
+      const v = caBtn.querySelector(".ca__label");
+      const old = v.textContent;
+      v.textContent = "COPIED \u2713";
+      setTimeout(() => (v.textContent = old), 1500);
+    } catch {}
+  });
+}
+
 window.addEventListener("load", () => ScrollTrigger.refresh());

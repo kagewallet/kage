@@ -239,8 +239,11 @@ body {
   0% { box-shadow: 0 0 0 0 rgba(195,39,43,0.5); }
   100% { box-shadow: 0 0 0 10px rgba(195,39,43,0); }
 }
-.ca__label { color: var(--crimson); font-weight: 700; }
+.ca__label { color: var(--crimson); font-weight: 700; white-space: nowrap; }
 .ca__value { color: rgba(22,18,16,0.65); }
+.ca__value--addr { font-size: 11.5px; letter-spacing: 0.03em; overflow-wrap: anywhere; }
+button.hero__ca { cursor: pointer; font: inherit; max-width: calc(100vw - 48px); }
+button.hero__ca:hover { background: rgba(195, 39, 43, 0.12); }
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
