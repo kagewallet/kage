@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=2" />
 </head>
 <body>
 
@@ -43,6 +43,7 @@
       <a href="#bridge" data-nav>Bridge</a>
       <a href="#faq" data-nav>FAQ</a>
       <a href="docs.html" data-nav>Docs</a>
+      <a href="#token" data-nav>$KAGE</a>
     </nav>
     <div class="nav__social">
       <a href="https://x.com/kagewallet" target="_blank" rel="noopener" aria-label="X — @kagewallet">
@@ -252,6 +253,23 @@
       </article>
     </section>
 
+    <!-- ================= TOKEN ================= -->
+    <section class="token" id="token">
+      <div class="token__card">
+        <p class="manifesto__label" data-reveal>— TOKEN 刻 · LIVE ON ROBINHOOD CHAIN —</p>
+        <h2 class="token__title" data-reveal>$KAGE <span class="crimson">is live.</span></h2>
+        <button class="token__ca" id="tokenCa" type="button" data-ca="0x12eb1bB1D1f61e43ACB42dbb045602D82aB67dD4" title="Click to copy" data-reveal>
+          <span class="token__addr">0x12eb1bB1D1f61e43ACB42dbb045602D82aB67dD4</span><span class="token__copy">COPY</span>
+        </button>
+        <div class="token__links" data-reveal>
+          <a class="btn btn--primary" href="https://www.ponsfamily.com/launchpad/0x12eb1bB1D1f61e43ACB42dbb045602D82aB67dD4" target="_blank" rel="noopener">Buy on Pons<span class="btn__ink" aria-hidden="true"></span></a>
+          <a class="btn btn--dark" href="https://robinhoodchain.blockscout.com/token/0x12eb1bB1D1f61e43ACB42dbb045602D82aB67dD4" target="_blank" rel="noopener">Explorer</a>
+          <a class="btn btn--dark" href="app/">Hold it in KAGE</a>
+        </div>
+        <p class="token__warn" data-reveal>The CA comes only from this site and @kagewallet. Early token — start small.</p>
+      </div>
+    </section>
+
     <!-- ================= BRIDGE (dark) ================= -->
     <section class="bridge section--ink" id="bridge">
       <div class="bridge__copy">
@@ -303,7 +321,11 @@
           <div class="qa__a"><p>Yes. The code is on GitHub, so anyone can read it and build it.</p></div>
         </details>
         <details class="qa">
-          <summary><span class="qa__no">05</span><span class="qa__q">Is KAGE affiliated with Robinhood?</span><span class="qa__mark">+</span></summary>
+          <summary><span class="qa__no">05</span><span class="qa__q">What is $KAGE?</span><span class="qa__mark">+</span></summary>
+          <div class="qa__a"><p>The KAGE token, live on Robinhood Chain via the Pons launchpad. The only real CA is shown on this page and posted by @kagewallet — anything else is fake. Creator fees from its curve fund development of the wallet.</p></div>
+        </details>
+        <details class="qa">
+          <summary><span class="qa__no">06</span><span class="qa__q">Is KAGE affiliated with Robinhood?</span><span class="qa__mark">+</span></summary>
           <div class="qa__a"><p>No. KAGE is independent software that speaks to Robinhood Chain. Robinhood does not endorse it.</p></div>
         </details>
       </div>
@@ -322,7 +344,7 @@
   <!-- ================= FOOTER ================= -->
   <footer class="footer">
     <div class="footer__cols">
-      <div><h4>KAGE</h4><a href="app/">App</a><a href="#features">Wallet</a><a href="#bridge">Bridge</a><a href="#faq">FAQ</a><a href="docs.html">Docs</a><a href="#download">Download</a></div>
+      <div><h4>KAGE</h4><a href="#token">$KAGE</a><a href="app/">App</a><a href="#features">Wallet</a><a href="#bridge">Bridge</a><a href="#faq">FAQ</a><a href="docs.html">Docs</a><a href="#download">Download</a></div>
       <div><h4>LEGAL</h4><a href="#">Privacy</a><a href="#">Disclosures</a><a href="#">Terms</a></div>
       <div><h4>FOLLOW</h4><a href="https://x.com/kagewallet" target="_blank" rel="noopener">X — @kagewallet</a><a href="https://t.me/kagewallet" target="_blank" rel="noopener">Telegram — @kagewallet</a><a href="https://github.com/kagewallet/kage" target="_blank" rel="noopener">GitHub</a><a href="mailto:dev@kagewallet.app">dev@kagewallet.app</a></div>
       <div><h4>STATUS</h4><p class="footer__status"><span class="ui__pulse"></span>Building in public</p></div>
@@ -334,6 +356,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=2"></script>
 </body>
 </html>

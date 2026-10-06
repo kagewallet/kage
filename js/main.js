@@ -372,4 +372,16 @@ if (caBtn && caBtn.dataset.ca) {
   });
 }
 
+const tokCa = document.getElementById("tokenCa");
+if (tokCa) {
+  tokCa.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(tokCa.dataset.ca);
+      const c = tokCa.querySelector(".token__copy");
+      c.textContent = "COPIED \u2713";
+      setTimeout(() => (c.textContent = "COPY"), 1500);
+    } catch {}
+  });
+}
+
 window.addEventListener("load", () => ScrollTrigger.refresh());
