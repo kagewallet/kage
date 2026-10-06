@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>post2</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@700;800&family=IBM+Plex+Mono:wght@400;500&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 800px; height: 450px; overflow: hidden; }
+  .stage {
+    position: relative; width: 800px; height: 450px;
+    background: #161210; overflow: hidden;
+    font-family: 'Shippori Mincho', serif; color: #f4efe4;
+  }
+  .giant { position: absolute; left: -40px; bottom: -120px; font-size: 380px; font-weight: 800; color: rgba(244,239,228,0.04); user-select: none; }
+  .copy { position: absolute; left: 54px; top: 50%; translate: 0 -50%; max-width: 390px; }
+  .kicker { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.3em; color: #c3272b; margin-bottom: 14px; }
+  .title { font-size: 46px; font-weight: 800; line-height: 1.1; }
+  .title em { font-style: normal; color: #c3272b; }
+  .chips { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips span {
+    font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 12px; font-weight: 700;
+    border: 1px solid rgba(244,239,228,0.25); border-radius: 999px; padding: 6px 13px;
+  }
+  .chips span::before { content: "● "; color: #c3272b; font-size: 8px; }
+  .link { margin-top: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; letter-spacing: 0.14em; color: #c3272b; font-weight: 500; }
+  /* confirm sheet mock */
+  .sheet {
+    position: absolute; right: 56px; top: 50%; translate: 0 -50%;
+    width: 280px; background: #221c18;
+    border: 1px solid rgba(244,239,228,0.1); border-radius: 16px;
+    padding: 20px; box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
+    rotate: 2deg;
+  }
+  .sheet .bar { display: flex; gap: 5px; margin-bottom: 14px; }
+  .sheet .bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(244,239,228,0.15); }
+  .sheet .bar i:first-child { background: #c3272b; }
+  .sheet h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  .line { display: flex; justify-content: space-between; padding: 9px 2px; border-bottom: 1px dashed rgba(244,239,228,0.13); font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 12px; color: rgba(244,239,228,0.55); }
+  .line b { font-family: 'IBM Plex Mono', monospace; font-weight: 500; color: #f4efe4; font-size: 12px; }
+  .line.total { border-bottom: none; }
+  .line.total b { color: #c3272b; font-weight: 700; }
+  .btn { margin-top: 12px; width: 100%; text-align: center; background: #c3272b; border-radius: 999px; padding: 10px 0; font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 13px; }
+  .seal { position: absolute; top: -16px; right: -14px; width: 46px; height: 46px; display: grid; place-items: center; background: #c3272b; border-radius: 9px; font-size: 22px; font-weight: 800; rotate: 8deg; box-shadow: 3px 3px 0 rgba(0,0,0,0.3); }
+  .strip { position: absolute; left: 0; right: 0; bottom: 0; height: 8px; background: #c3272b; }
+  .grain { position: absolute; inset: 0; opacity: .5; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="giant">刀</div>
+    <div class="copy">
+      <p class="kicker">LIVE NOW — 試</p>
+      <div class="title">Self-custody,<br/>in your <em>browser</em>.</div>
+      <div class="chips"><span>24-word seed</span><span>Your device only</span><span>Gas ≈ 0.02 gwei</span><span>No account</span></div>
+      <div class="link">kagewallet.app/app</div>
+    </div>
+    <div class="sheet">
+      <div class="seal">刀</div>
+      <div class="bar"><i></i><i></i><i></i></div>
+      <h3>Check the strike</h3>
+      <div class="line"><span>Amount</span><b>0.2500 ETH</b></div>
+      <div class="line"><span>Gas · 0.02 gwei</span><b>0.0000004 ETH</b></div>
+      <div class="line total"><span>Total</span><b>0.2500004 ETH</b></div>
+      <div class="btn">Send now</div>
+    </div>
+    <div class="strip"></div>
+    <div class="grain"></div>
+  </div>
+</body>
+</html>

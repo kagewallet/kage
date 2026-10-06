@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>post1</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@700;800&family=IBM+Plex+Mono:wght@500&family=Zen+Kaku+Gothic+New:wght@500&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 800px; height: 450px; overflow: hidden; }
+  .stage {
+    position: relative; width: 800px; height: 450px;
+    background: #f4efe4; overflow: hidden;
+    font-family: 'Shippori Mincho', serif;
+  }
+  .giant {
+    position: absolute; right: -30px; top: 50%; translate: 0 -50%;
+    font-size: 480px; font-weight: 800; line-height: 1;
+    color: rgba(22,18,16,0.05); user-select: none;
+  }
+  .enso { position: absolute; top: 50%; right: 70px; width: 300px; translate: 0 -52%; color: #c3272b; }
+  .enso svg { width: 100%; display: block; }
+  .samurai {
+    position: absolute; top: 47%; right: 108px; width: 225px; translate: 0 -50%;
+    mix-blend-mode: multiply; filter: brightness(1.08) contrast(1.06);
+  }
+  .copy { position: absolute; left: 54px; top: 50%; translate: 0 -50%; }
+  .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .mon { display: grid; place-items: center; width: 44px; height: 44px; background: #c3272b; color: #f4efe4; border-radius: 10px; font-size: 24px; font-weight: 800; }
+  .name { font-size: 19px; font-weight: 800; letter-spacing: 0.24em; color: #161210; }
+  .title { font-size: 62px; font-weight: 800; line-height: 1.04; color: #161210; }
+  .title em { font-style: normal; color: #c3272b; }
+  .sub { margin-top: 16px; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 15px; color: rgba(22,18,16,0.65); max-width: 360px; line-height: 1.5; }
+  .link { margin-top: 18px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; letter-spacing: 0.16em; color: #c3272b; font-weight: 500; }
+  .strip { position: absolute; left: 0; right: 0; bottom: 0; height: 8px; background: #c3272b; }
+  .grain { position: absolute; inset: 0; opacity: .5; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="giant">影</div>
+    <div class="enso"><svg viewBox="0 0 600 600" fill="none"><path d="M383 78C275 42 125 96 86 237c-39 141 51 262 183 278 132 16 243-77 252-197 7-96-48-171-121-205" stroke="currentColor" stroke-width="30" stroke-linecap="round"/></svg></div>
+    <img class="samurai" src="/images/hero-samurai.jpg" alt="" />
+    <div class="copy">
+      <div class="brand"><span class="mon">影</span><span class="name">KAGE</span></div>
+      <div class="title">Own your<br/>road<em>.</em></div>
+      <p class="sub">Self-custody wallet for Robinhood Chain. Your keys live on your device — no account, no custodian.</p>
+      <div class="link">kagewallet.app</div>
+    </div>
+    <div class="strip"></div>
+    <div class="grain"></div>
+  </div>
+</body>
+</html>

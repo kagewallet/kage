@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>post3</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@700;800&family=IBM+Plex+Mono:wght@500&family=Zen+Kaku+Gothic+New:wght@500&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 800px; height: 450px; overflow: hidden; }
+  .stage {
+    position: relative; width: 800px; height: 450px;
+    background: #100d0b; overflow: hidden;
+    font-family: 'Shippori Mincho', serif; color: #f4efe4;
+    display: grid; place-items: center; text-align: center;
+  }
+  .kanji {
+    position: absolute; top: 50%; left: 50%; translate: -50% -52%;
+    font-size: 380px; font-weight: 800; line-height: 1;
+    color: rgba(195,39,43,0.1); user-select: none;
+  }
+  .enso { position: absolute; top: 50%; left: 50%; width: 400px; translate: -50% -52%; color: rgba(195,39,43,0.35); }
+  .enso svg { width: 100%; display: block; }
+  .inner { position: relative; }
+  .kicker { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.34em; color: rgba(244,239,228,0.5); margin-bottom: 16px; }
+  .title { font-size: 52px; font-weight: 800; line-height: 1.1; }
+  .title em { font-style: normal; color: #c3272b; }
+  .pill {
+    margin: 24px auto 0; display: inline-flex; align-items: center; gap: 12px;
+    border: 1px dashed rgba(195,39,43,0.65); border-radius: 999px;
+    padding: 12px 26px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 14px; letter-spacing: 0.24em;
+  }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: #c3272b; box-shadow: 0 0 14px rgba(195,39,43,0.9); }
+  .pill b { color: #c3272b; font-weight: 500; }
+  .foot { margin-top: 22px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; color: rgba(244,239,228,0.45); }
+  .strip { position: absolute; left: 0; right: 0; bottom: 0; height: 8px; background: #c3272b; }
+  .grain { position: absolute; inset: 0; opacity: .55; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="kanji">影</div>
+    <div class="enso"><svg viewBox="0 0 600 600" fill="none"><path d="M383 78C275 42 125 96 86 237c-39 141 51 262 183 278 132 16 243-77 252-197 7-96-48-171-121-205" stroke="currentColor" stroke-width="30" stroke-linecap="round"/></svg></div>
+    <div class="inner">
+      <p class="kicker">THE SHADOW PATH OPENS SOON</p>
+      <div class="title">They hold the vault.<br/><em>You hold the key.</em></div>
+      <div class="pill"><span class="dot"></span><b>CA</b><span>COMING SOON</span></div>
+      <p class="foot">@kagewallet · kagewallet.app — anything else is fake</p>
+    </div>
+    <div class="strip"></div>
+    <div class="grain"></div>
+  </div>
+</body>
+</html>
